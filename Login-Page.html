@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Details Form</title>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+    input[type="text"], select, input[type="date"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #3897f0;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .dialog {
+      background-color: #fff;
+      max-width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      display: none;
+    }
+    .dialog h2 {
+      margin-top: 0;
+      color: #3897f0;
+      font-size: 18px;
+    }
+    .dialog p {
+      font-size: 14px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>User Details</h2>
+    <form id="userForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="text" id="email" required>
+      
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" required>
+      
+      <label for="age">Age:</label>
+      <input type="text" id="age" required>
+      
+      <label for="gender">Gender:</label>
+      <select id="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      
+      <button type="button" onclick="displayDetails()">Submit</button>
+    </form>
+  </div>
+
+  <div class="dialog" id="dialog">
+    <h2>User Details</h2>
+    <p id="details"></p>
+  </div>
+
+  <script>
+    function displayDetails() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var dob = document.getElementById("dob").value;
+      var age = document.getElementById("age").value;
+      var gender = document.getElementById("gender").value;
+
+      var details = "Name: " + name + "<br>";
+      details += "Email: " + email + "<br>";
+      details += "Date of Birth: " + dob + "<br>";
+      details += "Age: " + age + "<br>";
+      details += "Gender: " + gender;
+
+      document.getElementById("details").innerHTML = details;
+      document.getElementById("dialog").style.display = "block";
+    }
+  </script>
+</body>
+</html>
